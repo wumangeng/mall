@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+            http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.mallcloud</groupId>
+        <artifactId>mall-product</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>mall-product-biz</artifactId>
+	<packaging>jar</packaging>
+
+	<description>mall 商品模块</description>
+
+
+    <dependencies>
+		<!--必备: 依赖api模块-->
+		<dependency>
+			<groupId>com.mallcloud</groupId>
+			<artifactId>mall-product-api</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<!--  优惠劵 api模块		-->
+		<dependency>
+			<groupId>com.mallcloud</groupId>
+			<artifactId>mall-coupon-api</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<!--  仓储 api模块		-->
+		<dependency>
+			<groupId>com.mallcloud</groupId>
+			<artifactId>mall-ware-api</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<!--	资源api	-->
+		<dependency>
+			<groupId>com.mallcloud</groupId>
+			<artifactId>mall-resources-api</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<!--必备：安全模块-->
+		<dependency>
+			<groupId>com.mallcloud</groupId>
+			<artifactId>mall-common-security</artifactId>
+		</dependency>
+		<!--必备：日志处理-->
+		<dependency>
+			<groupId>com.mallcloud</groupId>
+			<artifactId>mall-common-log</artifactId>
+		</dependency>
+		<!--必备：swagger-->
+		<dependency>
+			<groupId>com.mallcloud</groupId>
+			<artifactId>mall-common-swagger</artifactId>
+		</dependency>
+		<!--必备: 注册中心客户端-->
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+		</dependency>
+		<!--必备: 配置中心客户端-->
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+		</dependency>
+		<!--可选：mybatis （需要链接数据库开启）-->
+		<dependency>
+			<groupId>com.mallcloud</groupId>
+			<artifactId>mall-common-mybatis</artifactId>
+		</dependency>
+		<!--必备：undertow容器-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-undertow</artifactId>
+		</dependency>
+<!--	配置文件提示工具	-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.keking</groupId>
+			<artifactId>spring-boot-klock-starter</artifactId>
+			<version>1.4-RELEASE</version>
+		</dependency>
+
+    </dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

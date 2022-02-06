@@ -1,0 +1,93 @@
+version: '2'
+services:
+  mall-mysql:
+    build:
+      context: ./db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    restart: always
+    container_name: mall-mysql
+    image: mall-mysql
+    ports:
+      - 3306:3306
+
+  mall-redis:
+    image: redis:6.0
+    ports:
+      - 6379:6379
+    restart: always
+    container_name: mall-redis
+    hostname: mall-redis
+
+  mall-register:
+    build:
+      context: ./mall-register
+    restart: always
+    ports:
+      - 8848:8848
+    container_name: mall-register
+    hostname: mall-register
+    image: mall-register
+
+  mall-gateway:
+    build:
+      context: ./mall-gateway
+    restart: always
+    ports:
+      - 9999:9999
+    container_name: mall-gateway
+    hostname: mall-gateway
+    image: mall-gateway
+
+  mall-auth:
+    build:
+      context: ./mall-auth
+    restart: always
+    container_name: mall-auth
+    hostname: mall-auth
+    image: mall-auth
+
+  mall-upms:
+    build:
+      context: ./mall-upms/mall-upms-biz
+    restart: always
+    container_name: mall-upms
+    hostname: mall-upms
+    image: mall-upms
+
+  mall-monitor:
+    build:
+      context: ./mall-visual/mall-monitor
+    restart: always
+    ports:
+      - 5001:5001
+    container_name: mall-monitor
+    hostname: mall-monitor
+    image: mall-monitor
+
+  mall-sentinel:
+    build:
+      context: ./mall-visual/mall-sentinel-dashboard
+    restart: always
+    image: mall-sentinel
+    container_name: mall-sentinel
+    ports:
+      - 5003:5003
+
+  mall-codegen:
+    build:
+      context: ./mall-visual/mall-codegen
+    restart: always
+    container_name: mall-codegen
+    hostname: mall-codegen
+    image: mall-codegen
+
+  mall-job:
+    build:
+      context: ./mall-visual/mall-xxl-job-admin
+    restart: always
+    container_name: mall-job
+    hostname: mall-job
+    image: mall-job
+    ports:
+      - 5004:5004

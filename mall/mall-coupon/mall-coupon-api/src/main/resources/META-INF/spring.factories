@@ -1,0 +1,6 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.mallcloud.mall.coupon.api.feign.fallback.RemoteSpuBoundsServiceFallbackImpl,\
+  com.mallcloud.mall.coupon.api.feign.fallback.RemoteSkuFullReductionServiceFallbackImpl,\
+  com.mallcloud.mall.coupon.api.feign.factory.RemoteSpuBoundsServiceFallbackFactory,\
+  com.mallcloud.mall.coupon.api.feign.factory.RemoteSkuFullReductionServiceFallbackFactory
+

@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.mallcloud.mall.common.feign.MallFeignAutoConfiguration,\
+    com.mallcloud.mall.common.feign.handle.GlobalBizExceptionHandler

@@ -1,0 +1,6 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.mallcloud.mall.common.core.config.JacksonConfiguration,\
+  com.mallcloud.mall.common.core.config.RedisTemplateConfiguration,\
+  com.mallcloud.mall.common.core.config.RestTemplateConfiguration,\
+  com.mallcloud.mall.common.core.util.SpringContextHolder,\
+  com.mallcloud.mall.common.core.config.WebMvcConfiguration

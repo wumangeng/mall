@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.mallcloud.mall.ware.api.feign.fallback.RemoteWareSkuServiceFallbackImpl,\
+  com.mallcloud.mall.ware.api.feign.factory.RemoteWareSkuServiceFallbackFactory

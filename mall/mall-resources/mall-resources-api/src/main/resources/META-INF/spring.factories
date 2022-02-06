@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.mallcloud.mall.resources.api.feign.factory.RemoteElasticSearchServiceFallbackFactory,\
+  com.mallcloud.mall.resources.api.feign.fallback.RemoteElasticSearchServiceFallbackImpl

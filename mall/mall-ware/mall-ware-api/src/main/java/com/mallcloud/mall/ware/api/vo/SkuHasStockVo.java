@@ -1,0 +1,12 @@
+package com.mallcloud.mall.ware.api.vo;
+
+import lombok.Data;
+
+@Data
+public class SkuHasStockVo {
+
+    private Long skuId;
+
+    private Boolean hasStock;
+
+}

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.mallcloud</groupId>
+	<artifactId>mall-common-bom</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<name>mall-common-bom</name>
+	<url>mall cloud parent</url>
+	<description>mall cloud parent</description>
+
+	<properties>
+		<mall.common.version>${project.version}</mall.common.version>
+		<spring-boot.version>2.5.4</spring-boot.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<security.oauth.version>2.3.6.RELEASE</security.oauth.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<git.commit.plugin>2.2.5</git.commit.plugin>
+		<spring.checkstyle.plugin>0.0.28</spring.checkstyle.plugin>
+		<fastjson.version>1.2.75</fastjson.version>
+		<swagger.core.version>1.5.24</swagger.core.version>
+		<mybatis-plus.version>3.4.3.2</mybatis-plus.version>
+		<rocksdbjni.version>5.18.3</rocksdbjni.version>
+		<nacos.version>2.0.3</nacos.version>
+		<excel.version>1.0.0</excel.version>
+	</properties>
+
+	<!-- 定义全局jar版本,模块使用需要再次引入但不用写版本号-->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.mallcloud</groupId>
+				<artifactId>mall-common-core</artifactId>
+				<version>${mall.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mallcloud</groupId>
+				<artifactId>mall-common-datasource</artifactId>
+				<version>${mall.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mallcloud</groupId>
+				<artifactId>mall-common-job</artifactId>
+				<version>${mall.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mallcloud</groupId>
+				<artifactId>mall-common-log</artifactId>
+				<version>${mall.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mallcloud</groupId>
+				<artifactId>mall-common-mybatis</artifactId>
+				<version>${mall.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mallcloud</groupId>
+				<artifactId>mall-common-security</artifactId>
+				<version>${mall.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mallcloud</groupId>
+				<artifactId>mall-common-feign</artifactId>
+				<version>${mall.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mallcloud</groupId>
+				<artifactId>mall-common-swagger</artifactId>
+				<version>${mall.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mallcloud</groupId>
+				<artifactId>mall-common-test</artifactId>
+				<version>${mall.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mallcloud</groupId>
+				<artifactId>mall-upms-api</artifactId>
+				<version>${mall.common.version}</version>
+			</dependency>
+			<!--稳定版本，替代spring security bom内置-->
+			<dependency>
+				<groupId>org.springframework.security.oauth</groupId>
+				<artifactId>spring-security-oauth2</artifactId>
+				<version>${security.oauth.version}</version>
+			</dependency>
+			<!--swagger 最新依赖内置版本-->
+			<dependency>
+				<groupId>io.swagger</groupId>
+				<artifactId>swagger-models</artifactId>
+				<version>${swagger.core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.swagger</groupId>
+				<artifactId>swagger-annotations</artifactId>
+				<version>${swagger.core.version}</version>
+			</dependency>
+			<!--fastjson 版本-->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+			<!--nacos 2.0 -->
+			<dependency>
+				<groupId>org.rocksdb</groupId>
+				<artifactId>rocksdbjni</artifactId>
+				<version>${rocksdbjni.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba.nacos</groupId>
+				<artifactId>nacos-client</artifactId>
+				<version>${nacos.version}</version>
+			</dependency>
+			<!-- excel 导入导出 -->
+			<dependency>
+				<groupId>com.pig4cloud.excel</groupId>
+				<artifactId>excel-spring-boot-starter</artifactId>
+				<version>${excel.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-boot-starter</artifactId>
+				<version>${mybatis-plus.version}</version>
+			</dependency>
+			<!--web 模块-->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>${spring-boot.version}</version>
+				<exclusions>
+					<!--排除tomcat依赖-->
+					<exclusion>
+						<artifactId>spring-boot-starter-tomcat</artifactId>
+						<groupId>org.springframework.boot</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<!--打包jar 与git commit 关联插件-->
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>${git.commit.plugin}</version>
+			</plugin>
+			<!--代码格式插件，默认使用spring 规则-->
+			<plugin>
+				<groupId>io.spring.javaformat</groupId>
+				<artifactId>spring-javaformat-maven-plugin</artifactId>
+				<version>${spring.checkstyle.plugin}</version>
+			</plugin>
+		</plugins>
+	</build>
+</project>

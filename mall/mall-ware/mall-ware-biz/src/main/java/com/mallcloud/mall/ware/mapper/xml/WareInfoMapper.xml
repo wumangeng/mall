@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mallcloud.mall.ware.mapper.WareInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mallcloud.mall.ware.api.entity.WareInfo">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="address" property="address" />
+        <result column="areacode" property="areacode" />
+		<result column="ware_principal" property="warePrincipal"/>
+		<result column="principal_phone" property="principalPhone"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, address, areacode,principal_phone,ware_principal
+    </sql>
+
+</mapper>

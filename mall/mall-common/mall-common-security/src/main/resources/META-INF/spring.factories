@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.mallcloud.mall.common.security.service.MallUserDetailsServiceImpl,\
+  com.mallcloud.mall.common.security.component.MallSecurityInnerAspect
+

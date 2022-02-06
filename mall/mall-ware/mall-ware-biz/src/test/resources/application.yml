@@ -1,0 +1,4 @@
+security:
+  oauth2:
+    client:
+      access-token-uri: http://mall-gateway:3000/oauth/token

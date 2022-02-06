@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>master-springcloud-mall</artifactId>
+		<groupId>com.mallcloud</groupId>
+		<version>1.0.0</version>
+	</parent>
+
+	<artifactId>mall-visual</artifactId>
+
+	<description>mall 图形化相关功能</description>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>mall-codegen</module>
+		<module>mall-monitor</module>
+		<module>mall-sentinel-dashboard</module>
+		<module>mall-xxl-job-admin</module>
+	</modules>
+</project>
